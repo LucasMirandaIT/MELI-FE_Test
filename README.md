@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MELI FE_Test
 
-## Getting Started
+## Intro
+Este Projeto foi criado como parte do Processo Seletivo do MELI para vaga de Front-End.
 
-First, run the development server:
+## Stack
+NextJS + TypeScript + SCSS + TailwindCSS
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Engine
+NodeJS 20
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Rodando o Projeto
+1. Execute o comando `npm install` para instalar as dependências necessárias
+2. Execute o comando `npm run dev` para rodar localmente o projeto
+3. Abra o browser de sua preferência na URL: https://localhost:5173
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Em caso de problemas, me procure em: 
+[<img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="100"/>](https://github.com/LucasMirandaIT)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" width="80"/>](https://www.linkedin.com/in/lucas-molina-miranda/)
