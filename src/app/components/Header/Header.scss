@@ -1,0 +1,46 @@
+.search {
+
+  &__wrapper {
+    width: 100%;
+    background-color: var(--primary-color);
+    transition: .4s background-color;
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 8px;
+    column-gap: 8px;
+
+    &__logo {
+      width: 100%;
+      max-width: 100px;
+      margin-right: 12px;
+    }
+
+    &__input {
+      flex: 1;
+      background: #FFF;
+    }
+
+    &__button {
+      margin-left: 8px;
+    }
+  }
+
+}
+
+@media (min-width: 500px) {
+  .search {
+    &__bar {
+      column-gap: 16px;
+
+      &__logo {
+        max-width: 150px;
+      }
+    }
+  }
+}
