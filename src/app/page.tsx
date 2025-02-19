@@ -1,7 +1,5 @@
 export default function Home() {
   return (
-    <div className="grid">
-      <h1>Home Page</h1>
-    </div>
+    <h1 className="text-2xl mt-8 text-center">Home Page</h1>
   );
 }

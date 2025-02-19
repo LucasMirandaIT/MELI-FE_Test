@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import Header from "./components/Header";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "MELI - FE Test",
@@ -14,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <Suspense>
+          <Header />
+          {children}
+        </Suspense>
       </body>
     </html>
   );
