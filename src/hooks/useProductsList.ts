@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ITEMS_PER_PAGE = 10;
 const INITIAL_BATCH_SIZE = 50;
@@ -19,10 +19,6 @@ export const useProductsList = (query: string) => {
     const handleNextPage = (page: number) => {
       setOffset(((page - 1) * ITEMS_PER_PAGE));
     }
-
-    useEffect(() => {
-      console.log('Renderizou Hook');
-    }, []);
   
     const {
       data,

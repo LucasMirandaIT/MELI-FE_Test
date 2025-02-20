@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from 'next/navigation'
 import Image from "next/image";
 import Logo from "@/assets/logo.png";
@@ -14,24 +14,27 @@ export default function Header() {
   const searchParams = useSearchParams();
   const query = searchParams.get('search');
 
-  // const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchInput, setsearchInput] = useState<string>("");
+  
   const {searchTerm, setSearchTerm} = useSearch();
   const router = useRouter();
 
   const navigateHome = () => {
     router.push('/');
-    setSearchTerm('');
+    setsearchInput('');
   };
 
   const handleSearch = () => {
-    router.push(searchTerm ? `/items?search=${searchTerm}` : "/items");
+    setSearchTerm(searchInput);
+    router.push(searchInput ? `/items?search=${searchInput}` : "/items");
   };
 
   useEffect(() => {
     if (query && !searchTerm) {
+      setsearchInput(query);
       setSearchTerm(query);
     }
-  }, []);
+  }, [query, searchTerm]);
 
   return (
     <section className="search__wrapper">
@@ -41,9 +44,9 @@ export default function Header() {
           className="search__bar__input"
           variant="outlined"
           placeholder="Buscar productos, marcas y más…"
-          value={searchTerm}
+          value={searchInput}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => setsearchInput(e.target.value)}
           slotProps={{
             input: {
               endAdornment: (

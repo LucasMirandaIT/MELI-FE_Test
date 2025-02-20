@@ -8,19 +8,18 @@ import ProductItem from "../ProductItem";
 import { scrollTop } from "@/utils/scroll";
 import { ProductAPI } from "@/interfaces/ProductAPI";
 import { useProductsList } from "@/hooks/useProductsList";
+import { useSearch } from "@/context/SearchContext";
 
 const ITEMS_PER_PAGE = 10;
 const INITIAL_BATCH_SIZE = 50;
 
-interface ProductListProps {
-  query: string;
-}
+export default function ProductList() {
 
-export default function ProductList({ query }: ProductListProps) {
+  const { searchTerm } = useSearch();
   const [currentPage, setCurrentPage] = useState(1);
   const [localProducts, setLocalProducts] = useState<ProductAPI[]>([]);
 
-  const { data, totalPages, handleNextPage, offset, isPending, error } = useProductsList(query);
+  const { data, totalPages, handleNextPage, offset, isPending, error } = useProductsList(searchTerm);
 
 
   const paginatedItems = localProducts.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
@@ -32,6 +31,11 @@ export default function ProductList({ query }: ProductListProps) {
     setCurrentPage(page);
     scrollTop();
   }
+
+  useEffect(() => {
+    setLocalProducts([]);
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   useEffect(() => {
     if (!data) return;

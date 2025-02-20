@@ -22,7 +22,7 @@ export default function Items() {
   return (
     <>
       {searchTerm ? (
-        <ProductList query={searchTerm} />
+        <ProductList />
       ) : (
         <p className="flex mt-8 justify-center items-center">Type something to search.</p>
       )}
