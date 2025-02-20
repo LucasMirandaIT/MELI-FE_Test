@@ -19,11 +19,13 @@
       width: 100%;
       max-width: 100px;
       margin-right: 12px;
+      cursor: pointer;
     }
 
     &__input {
       flex: 1;
       background: #FFF;
+      border-radius: 4px;
     }
 
     &__button {

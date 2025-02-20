@@ -13,7 +13,7 @@ export default function Header() {
   const searchParams = useSearchParams();
 
   const query = searchParams.get('search');
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const router = useRouter();
 
   const navigateHome = () => {
