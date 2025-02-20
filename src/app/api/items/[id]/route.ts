@@ -3,7 +3,8 @@ import { transformProductDetails } from './handler';
 
 const url = `https://api.mercadolibre.com`;
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }): Promise<Response> {
+/* eslint-disable-next-line */
+export async function GET(request: NextRequest, { params }: any): Promise<Response> {
   const { id } = await params;
 
   if (!id) {

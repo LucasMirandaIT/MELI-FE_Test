@@ -13,11 +13,7 @@ import { useSearch } from "@/context/SearchContext";
 const ITEMS_PER_PAGE = 10;
 const INITIAL_BATCH_SIZE = 50;
 
-interface ProductListProps {
-  query: string;
-}
-
-export default function ProductList({ query }: ProductListProps) {
+export default function ProductList() {
 
   const { searchTerm } = useSearch();
   const [currentPage, setCurrentPage] = useState(1);
