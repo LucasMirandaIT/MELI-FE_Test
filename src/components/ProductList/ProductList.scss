@@ -1,0 +1,14 @@
+.product-list {
+  list-style: none;
+  padding: 0;
+  max-width: 1200px;
+  margin: 32px auto;
+
+  &__pagination {
+    @apply flex justify-center mt-4;
+  }
+
+  &__skeleton {
+    @apply flex flex-col md:flex-row mb-2 bg-white px-4 py-2;
+  }
+}
