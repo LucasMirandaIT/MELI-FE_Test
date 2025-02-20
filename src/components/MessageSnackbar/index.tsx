@@ -1,6 +1,4 @@
 import { Alert, AlertColor, Slide, SlideProps, Snackbar } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 
 interface MessageSnackbarProps {
   isOpen: boolean;

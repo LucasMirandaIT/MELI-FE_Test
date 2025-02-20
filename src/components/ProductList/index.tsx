@@ -1,11 +1,13 @@
+'use client';
+
 import { Pagination, Skeleton } from "@mui/material";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import './ProductList.scss';
 import ProductItem from "../ProductItem";
 import { scrollTop } from "@/utils/scroll";
-import { ProductAPI } from "@/app/interfaces/ProductAPI";
-import { useProductsList } from "@/app/hooks/useProductsList";
+import { ProductAPI } from "@/interfaces/ProductAPI";
+import { useProductsList } from "@/hooks/useProductsList";
 
 const ITEMS_PER_PAGE = 10;
 const INITIAL_BATCH_SIZE = 50;
@@ -23,7 +25,7 @@ export default function ProductList({ query }: ProductListProps) {
 
   const paginatedItems = localProducts.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
-  const changePage = (event: any, page: number) => {
+  const changePage = (event: ChangeEvent<unknown>, page: number) => {
     if (page * ITEMS_PER_PAGE == (offset + ITEMS_PER_PAGE) + INITIAL_BATCH_SIZE) {
       handleNextPage(page);
     }

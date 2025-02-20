@@ -26,7 +26,6 @@ export const useProductsList = (query: string) => {
   
     const {
       data,
-      fetchNextPage,
       isPending,
       error,
     } = useInfiniteQuery({

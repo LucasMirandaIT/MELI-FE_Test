@@ -1,7 +1,7 @@
-import { type NextResponse, type NextRequest } from 'next/server'
+import { type NextRequest } from 'next/server'
 import { transformProductsList } from './handler';
 
-export async function GET(request: NextRequest, response: NextResponse) {
+export async function GET(request: NextRequest): Promise<Response> {
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get('q');
   const offset = searchParams.get('offset');
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
     );
   } catch (e: unknown) {
     return new Response(
-      JSON.stringify({ message: 'An error ocurred while fetching product' }),
+      JSON.stringify({ message: 'An error ocurred while fetching product', error: e }),
       { status: 500 }
     );
   }

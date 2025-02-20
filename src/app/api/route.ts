@@ -1,8 +1,6 @@
-import { type NextResponse, type NextRequest } from 'next/server'
-
-export async function GET(request: NextRequest, response: NextResponse) {
+export async function GET() {
   return new Response(
     JSON.stringify({ message: 'Success'}),
-    { status: response.status }
+    { status: 200 }
   );
 }

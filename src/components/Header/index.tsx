@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter, useSearchParams } from 'next/navigation'
 import Image from "next/image";
 import Logo from "@/assets/logo.png";
@@ -8,12 +8,14 @@ import { IconButton, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 import './Header.scss';
+import { useSearch } from "@/context/SearchContext";
 
 export default function Header() {
   const searchParams = useSearchParams();
-
   const query = searchParams.get('search');
-  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  // const [searchTerm, setSearchTerm] = useState<string>("");
+  const {searchTerm, setSearchTerm} = useSearch();
   const router = useRouter();
 
   const navigateHome = () => {

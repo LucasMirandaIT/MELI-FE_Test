@@ -1,11 +1,15 @@
 import { formatPrice } from "@/utils/format";
 import { useCallback } from "react";
 import './ProductItem.scss';
-import { ProductAPI } from "@/app/interfaces/ProductAPI";
+import { ProductAPI } from "@/interfaces/ProductAPI";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 interface ProductItemProps {
   product: ProductAPI;
 }
 export default function ProductItem({ product }: ProductItemProps) {
+
+  const router = useRouter();
 
   const calculatePercentageOff = useCallback((fullValue: number, discountedValue: number): number => {
     const percentageOff = ((fullValue - discountedValue) / fullValue) * 100;
@@ -19,12 +23,12 @@ export default function ProductItem({ product }: ProductItemProps) {
 
 
   const openProduct = (product: ProductAPI) => {
-    // router.push(`/items/${product.id}`);
+    router.push(`/items/${product.id}`);
   };
 
   return (
     <li className="product-list__item" onClick={() => openProduct(product)}>
-      <img src={product.picture} alt={product.title} className="product-list__image" />
+      <Image src={product.picture} alt={product.title} className="product-list__image" width={200}  height={200} />
       <div className="product-list__info">
         <h3 className="product-list__title">{product.title}</h3>
         <p className="product-list__seller">Por {product.seller}</p>

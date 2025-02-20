@@ -1,4 +1,4 @@
-import { Attribute, Product } from "@/app/interfaces/Product";
+import { Attribute, Product } from "@/interfaces/Product";
 
 export const transformProductsList = (productsList: Product[]) => {
 const transformedList = productsList.map((item: Product) => {
