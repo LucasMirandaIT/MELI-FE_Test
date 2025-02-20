@@ -1,0 +1,133 @@
+$gray-text: #00000055;
+$green-text: #27AA5A;
+
+.product {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto 32px;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    padding: 16px 8px;
+
+    &__back {
+      color: #3483fa;
+      cursor: pointer;
+    }
+
+    &__breadcrumb {
+      flex: 1;
+      display: flex;
+      list-style: none;
+
+      padding-left: 16px;
+      margin-left: 16px;
+      color: $gray-text;
+
+      li:not(:last-child) {
+        &::after {
+          content: '>';
+          margin: 0 10px;
+        }
+      }
+    }
+
+    &__listing-id {
+      color: #00000080;
+    }
+  }
+
+  &__content {
+    background: #FFF;
+
+    &__condition {
+      color: $gray-text;
+      margin-bottom: 8px;
+    }
+
+    &__product-name {
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    &__price {
+      font-size: 24px;
+    }
+
+    &__shipping {
+      color: $green-text;
+      margin-bottom: 16px;
+    }
+
+    &__buy-btn {
+      margin-bottom: 16px !important;
+    }
+  }
+
+  &__divider {
+    grid-column: span 2 / span 2;
+    height: 1px;
+    width: 93%;
+    margin-top: 32px;
+    background: #E0E0E0;
+    border: none;
+  }
+
+  &__description {
+    grid-column: span 2 / span 2;
+
+    &__title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+
+    &__content {
+      font-size: 14px;
+      margin-top: 16px;
+      color: $gray-text;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .product {
+    &__header{
+      flex-direction: row;
+      &__breadcrumb {
+        border-left: 1px solid #868686;
+      }
+    }
+
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      padding: 32px;
+
+      &__product-name {
+        font-size: 22px;
+      }
+
+      &__price {
+        font-size: 28px;
+        margin-bottom: 32px;
+      }
+    }
+
+    &__description {
+      padding: 64px;
+
+      &__title {
+        font-size: 22px;
+      }
+
+      &__content {
+        font-size: 18px;
+      }
+    }
+  }
+}
