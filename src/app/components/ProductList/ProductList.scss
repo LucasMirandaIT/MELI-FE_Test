@@ -1,0 +1,57 @@
+@use '@/assets/styles/colors.scss' as colors;
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  max-width: 1200px;
+  margin: 24px auto;
+
+  &__pagination {
+    @apply flex justify-center mt-4;
+
+    ul {
+      gap: 2px;
+
+      li {
+        button {
+          font-size: 16px;
+          font-family: 'Proxima Nova';
+          font-weight: 400;
+          &.Mui-selected {
+            background-color: #f5f5f5;
+            color: colors.$text-darker;
+            font-weight: 600;
+            border: 1px solid colors.$text-link;
+            &:hover {
+              color: #FFF;
+            }
+          }
+        }
+
+        &:first-child {
+          button {
+            &::after {
+              content: 'Previo';
+              display: block;
+              margin-left: 12px;
+            }
+          }
+        }
+
+        &:last-child {
+          button {
+            &::before {
+              content: 'Siguiente';
+              display: block;
+              margin-right: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__skeleton {
+    @apply flex flex-col md:flex-row mb-2 bg-[#FFF] px-4 py-2;
+  }
+}

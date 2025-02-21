@@ -8,7 +8,6 @@ export default function ItemsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <QueryClientProvider client={client}>
       {children}

@@ -1,8 +1,10 @@
-$gray-text: #00000055;
-$green-text: #27AA5A;
+@use '@/assets/styles/colors.scss' as colors;
+
+$margin-default-mobile: 14px;
+$margin-default-desktop: 28px;
 
 .product {
-  max-width: 1300px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto 32px;
 
@@ -15,7 +17,9 @@ $green-text: #27AA5A;
     padding: 16px 8px;
 
     &__back {
-      color: #3483fa;
+      color: colors.$text-link;
+      font-size: 15px;
+      font-weight: 400;
       cursor: pointer;
     }
 
@@ -26,12 +30,17 @@ $green-text: #27AA5A;
 
       padding-left: 16px;
       margin-left: 16px;
-      color: $gray-text;
+      color: colors.$text-medium;
 
-      li:not(:last-child) {
-        &::after {
-          content: '>';
-          margin: 0 10px;
+      li {
+        cursor: pointer;
+
+        &:not(:last-child) {
+          &::after {
+            content: '>';
+            margin: 0 10px;
+            cursor: default;
+          }
         }
       }
     }
@@ -45,26 +54,56 @@ $green-text: #27AA5A;
     background: #FFF;
 
     &__condition {
-      color: $gray-text;
-      margin-bottom: 8px;
+      color: colors.$text-medium;
+      margin: $margin-default-mobile 0;
+      font-weight: 300;
+      font-size: 15px;
     }
 
     &__product-name {
-      margin-bottom: 16px;
+      margin-bottom: 8px;
       font-size: 16px;
+      color: colors.$text-darker;
+      font-weight: 600;
+    }
+
+    &__seller {
+      margin-bottom: $margin-default-mobile;
+      color: colors.$text-medium;
     }
 
     &__price {
       font-size: 24px;
+      font-weight: 400;
+      color: colors.$text-darker;
+    }
+
+    &__installments {
+      color: colors.$text-green;
+      margin-bottom: $margin-default-mobile;
+      font-weight: 300;
+      font-size: 14px;
     }
 
     &__shipping {
-      color: $green-text;
-      margin-bottom: 16px;
+      font-weight: 600;
+      color: colors.$text-green;
+      font-size: 14px;
+      margin-bottom: $margin-default-mobile;
     }
 
     &__buy-btn {
-      margin-bottom: 16px !important;
+      margin-bottom: $margin-default-mobile !important;
+    }
+
+    &__attribute {
+      color: colors.$text-darker;
+      font-weight: 300;
+      font-size: 14px;
+
+      b {
+        font-weight: 400;
+      }
     }
   }
 
@@ -72,7 +111,7 @@ $green-text: #27AA5A;
     grid-column: span 2 / span 2;
     height: 1px;
     width: 93%;
-    margin-top: 32px;
+    margin-top: 28px;
     background: #E0E0E0;
     border: none;
   }
@@ -82,44 +121,85 @@ $green-text: #27AA5A;
 
     &__title {
       font-size: 16px;
-      font-weight: bold;
-      margin-top: 16px;
+      font-weight: 400;
     }
 
     &__content {
       font-size: 14px;
       margin-top: 16px;
-      color: $gray-text;
+      font-weight: 400;
+      color: colors.$text-medium;
     }
   }
 }
 
 @media (min-width: 500px) {
   .product {
-    &__header{
+    &__header {
       flex-direction: row;
+      padding: 30px 0 10px;
+
       &__breadcrumb {
         border-left: 1px solid #868686;
+        font-size: 18px;
+        font-weight: 300;
+      }
+
+      &__listing-id {
+        color: colors.$text-dark;
+        font-size: 15px;
+        font-weight: 300;
+
+        b {
+          font-weight: 400;
+        }
       }
     }
 
     &__content {
       display: grid;
-      grid-template-columns: repeat(2, 50%);
-      padding: 32px;
+      grid-template-columns: repeat(2, calc(50% - 24px));
+      padding: 24px;
+      column-gap: 48px;
+
+      &__condition {
+        margin: $margin-default-desktop 0;
+      }
 
       &__product-name {
         font-size: 22px;
       }
 
+      &__seller {
+        margin-bottom: $margin-default-desktop;
+      }
+
       &__price {
-        font-size: 28px;
+        font-size: 36px;
         margin-bottom: 32px;
+      }
+
+      &__installments {
+        margin-bottom: $margin-default-desktop;
+        font-size: 18px;
+      }
+
+      &__shipping {
+        margin-bottom: $margin-default-desktop;
+        font-size: 18px;
+      }
+
+      &__buy-btn {
+        margin-bottom: $margin-default-desktop !important;
+      }
+
+      &__attribute {
+        font-size: 18px;
       }
     }
 
     &__description {
-      padding: 64px;
+      padding: $margin-default-desktop 0;
 
       &__title {
         font-size: 22px;
@@ -127,6 +207,7 @@ $green-text: #27AA5A;
 
       &__content {
         font-size: 18px;
+        margin-top: 16px;
       }
     }
   }

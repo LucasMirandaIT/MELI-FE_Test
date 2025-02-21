@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
-import Header from "../components/Header";
+import Header from "@/components/Header";
 import { SearchProvider } from "@/context/SearchContext";
 import { Suspense } from "react";
 
