@@ -1,6 +1,6 @@
 {
   "name": "meli-fe_test",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -19,6 +19,7 @@
     "react": "^19.0.0",
     "react-cookie": "^7.2.2",
     "react-dom": "^19.0.0",
+    "react-photo-view": "^1.2.7",
     "sass": "^1.85.0"
   },
   "devDependencies": {

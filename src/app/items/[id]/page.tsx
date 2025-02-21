@@ -1,22 +1,23 @@
 'use client';
 
+import { Button, Skeleton } from "@mui/material";
+import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
+
+import MessageSnackbar from "@/components/MessageSnackbar";
 import ImageGallery from "@/components/ImageGallery";
 import { useProductDetails } from "@/hooks/useProductDetails";
+import { Attribute } from "@/interfaces/Product";
 import { IdName } from "@/interfaces/ProductDetails";
-import { formatPrice, showFreeSending } from "@/utils/format";
-import { useParams, useRouter } from "next/navigation";
+import { formatPrice } from "@/utils/format";
 
 import './ProductDetails.scss';
-import { Attribute } from "@/interfaces/Product";
-import { Button, Skeleton } from "@mui/material";
-import MessageSnackbar from "@/components/MessageSnackbar";
-import { useState } from "react";
 
 function SkeletonLoading() {
   return (
     <>
-      <Skeleton variant="text" width={'95%'} sx={{ fontSize: '2.5rem', width: '95%', maxWidth: '1300px', margin: '0 auto' }} />
-      <div className="product__content h-[80vh] w-[95%] max-w-[1300px] mx-auto">
+      <Skeleton variant="text" width={'95%'} sx={{ fontSize: '2.5rem', width: '95%', maxWidth: '1200px', margin: '0 auto' }} />
+      <div className="product__content h-[80vh] w-[95%] max-w-[1200px] mx-auto">
         <Skeleton variant="rectangular" width={'80%'} height={'100%'} sx={{ marginTop: '10px', marginLeft: '10%' }} />
 
         <Skeleton variant="rectangular" width={'80%'} height={'70%'} sx={{ marginTop: '10px', marginLeft: '2%' }} />
@@ -54,15 +55,19 @@ export default function ItemById() {
         <p className="product__header__listing-id">Publicación: <b>#{product.id}</b></p>
       </div>
       <div className="product__content">
-        {product.pictures && <ImageGallery images={product.pictures} />}
+        {product.pictures && (
+          <ImageGallery images={product.pictures} />
+        )}
         <div>
-          <p className="product__content__condition">{product.condition}</p>
+          <p className="product__content__condition">{product.condition} | N/A vendidos</p>
           <h1 className="product__content__product-name">{product.title}</h1>
+          <h1 className="product__content__seller">Por N/A</h1>
           {!!product.price.regularAmount && (
             <p className="product__content__regular-price">{formatPrice(product.price.regularAmount, product.price.currency)}</p>
           )}
           <p className="product__content__price">{formatPrice(product.price.amount, product.price.currency)}</p>
-          {showFreeSending(product) && <p className="product__content__shipping">Envío gratis</p>}
+          <p className="product__content__installments">Mismo precio en N/A cuotas de N/A</p>
+          {product.free_shipping && <p className="product__content__shipping">Envío gratis</p>}
           <Button className="product__content__buy-btn" variant="contained" onClick={() => buyProduct(product.title)}>Comprar Ahora</Button>
           {product.attributes.map((attribute: Attribute) => (
             <p className="product__content__attribute" key={attribute.id}>{attribute.name}: <b>{attribute.value_name}</b></p>

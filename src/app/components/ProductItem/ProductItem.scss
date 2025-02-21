@@ -1,0 +1,117 @@
+@use '@/assets/styles/colors.scss' as colors;
+
+.product-list {
+  &__item {
+
+    margin-bottom: 2px;
+    padding: 12px;
+    background: #FFF;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 16px;
+
+    max-width: 95%;
+    margin: 0 auto 2px;
+    cursor: pointer;
+  }
+
+  &__image {
+    margin: auto;
+    height: auto;
+    width: auto;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+  }
+
+  &__title {
+    color: colors.$text-darker;
+    font-weight: 300;
+    font-size: 16px;
+  }
+  
+  &__seller {
+    color: colors.$text-medium;
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 32px;
+  }
+
+  &__discount-price {
+    color: colors.$text-medium;
+    font-size: 10px;
+    text-decoration: line-through;
+  }
+
+  &__discount-amount {
+    margin-left: 14px;
+    color: colors.$text-green;
+  }
+
+  &__final-price {
+    color: colors.$text-darker;
+    font-size: 18px;
+  }
+
+  &__shipping {
+    color: colors.$text-green;
+  }
+
+  &__condition {
+    color: #00000080;
+    margin-top: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-list {
+    &__item {
+      grid-template-columns: 20% calc(80% - 24px);
+      column-gap: 24px;
+      max-width: 100%;
+    }
+
+    &__image-container {
+      min-width: unset;
+    }
+
+    &__title {
+      font-size: 20px;
+      margin-top: 30px;
+    }
+
+    &__seller {
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    &__price, &__shipping {
+      margin-top: 25px;
+    }
+
+    &__discount-price {
+      font-size: 12px;
+    }
+
+    &__final-price {
+      font-size: 24px;
+    }
+
+    &__shipping {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &__discount-amount {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    &__condition {
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 25px;
+    }
+  }
+}

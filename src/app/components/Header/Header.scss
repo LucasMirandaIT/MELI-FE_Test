@@ -1,0 +1,84 @@
+@use '@/assets/styles/colors.scss' as colors;
+
+.search {
+
+  &__wrapper {
+    width: 100%;
+    background-color: colors.$primary-color;
+    transition: .4s background-color;
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 8px;
+    column-gap: 8px;
+
+    &__logo {
+      width: 100%;
+      max-width: 100px;
+      cursor: pointer;
+    }
+
+    &__input {
+      flex: 1;
+      background: #FFF;
+      border-radius: 4px;
+
+      width: 100%;
+
+      &__wrapper {
+        position: relative;
+        flex: 1;
+      }
+
+      input {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'Proxima Nova';
+        color: #0000008c;
+
+        &::placeholder {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__button {
+      margin-left: 8px;
+    }
+
+    .snackbar__wrapper {
+      position: absolute;
+      bottom: -48px;
+      right: 0;
+      .MuiSnackbar-root {
+        position: relative;
+        top: 0
+      }
+    }
+  }
+
+}
+
+@media (min-width: 500px) {
+  .search {
+    &__bar {
+      column-gap: 34px;
+      
+      &__logo {
+        max-width: 146px;
+      }
+    }
+  }
+}
+@media (min-width: 1220px) {
+  .search {
+    &__bar {
+      padding: 8px 0px;
+    }
+  }
+}

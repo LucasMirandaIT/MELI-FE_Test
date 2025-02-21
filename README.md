@@ -12,7 +12,8 @@ NodeJS 20
 ## Rodando o Projeto
 1. Execute o comando `npm install` para instalar as dependências necessárias
 2. Execute o comando `npm run dev` para rodar localmente o projeto
-3. Abra o browser de sua preferência na URL: https://localhost:5173
+3. Crie o arquivo `.env` com a variável de ambiente API_URL para que as requisições sejam feitas.
+4. Abra o browser de sua preferência na URL: https://localhost:5173
 
 ## Em caso de problemas, me procure em: 
 [<img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="100"/>](https://github.com/LucasMirandaIT)

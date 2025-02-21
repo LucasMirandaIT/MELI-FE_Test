@@ -1,7 +1,7 @@
 import { type NextRequest } from 'next/server'
 import { transformProductDetails } from './handler';
 
-const url = `https://api.mercadolibre.com`;
+const baseUrl = process.env.API_URL;
 
 /* eslint-disable-next-line */
 export async function GET(request: NextRequest, { params }: any): Promise<Response> {
@@ -15,16 +15,17 @@ export async function GET(request: NextRequest, { params }: any): Promise<Respon
   }
 
   try {
-    const responseItem = await fetch(`${url}/items/${id}`);
+    const responseItem = await fetch(`${baseUrl}/items/${id}`);
     const itemData = await responseItem.json();
 
-    const responseItemDescription = await fetch(`${url}/items/${id}/description`);
+    const responseItemDescription = await fetch(`${baseUrl}/items/${id}/description`);
     const itemDescription = await responseItemDescription.json();
 
-    const responseBreadcrumb = await fetch(`${url}/categories/${itemData.category_id}`);
+    const responseBreadcrumb = await fetch(`${baseUrl}/categories/${itemData.category_id}`);
     const itemBreadcrumb = await responseBreadcrumb.json();
 
     const formattedItem = transformProductDetails(itemData, itemDescription.plain_text, itemBreadcrumb.path_from_root);
+
     return new Response(
       JSON.stringify({ item: formattedItem }),
       { status: 200 }

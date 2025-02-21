@@ -1,6 +1,8 @@
 import { type NextRequest } from 'next/server'
 import { transformProductsList } from './handler';
 
+const baseUrl = process.env.API_URL;
+
 export async function GET(request: NextRequest): Promise<Response> {
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get('q');
@@ -13,7 +15,7 @@ export async function GET(request: NextRequest): Promise<Response> {
     );
   }
 
-  const url = `https://api.mercadolibre.com/sites/MLA/search?q=${encodeURIComponent(query)}&offset=${encodeURIComponent(offset || 0)}`;
+  const url = `${baseUrl}/sites/MLA/search?q=${encodeURIComponent(query)}&offset=${encodeURIComponent(offset || 0)}`;
 
   try {
     const response = await fetch(url);
@@ -26,7 +28,7 @@ export async function GET(request: NextRequest): Promise<Response> {
     );
   } catch (e: unknown) {
     return new Response(
-      JSON.stringify({ message: 'An error ocurred while fetching product', error: e }),
+      JSON.stringify({ message: 'An error ocurred while fetching products list', error: e }),
       { status: 500 }
     );
   }
