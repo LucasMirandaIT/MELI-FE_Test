@@ -1,17 +1,13 @@
 'use client';
 
-import { Button, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
 
-import MessageSnackbar from "@/components/MessageSnackbar";
-import ImageGallery from "@/components/ImageGallery";
+import ProductDetails from "@/components/ProductDetails";
 import { useProductDetails } from "@/hooks/useProductDetails";
-import { Attribute } from "@/interfaces/Product";
 import { IdName } from "@/interfaces/ProductDetails";
-import { formatPrice } from "@/utils/format";
 
-import './ProductDetails.scss';
+import './ItemById.scss';
 
 function SkeletonLoading() {
   return (
@@ -30,14 +26,9 @@ export default function ItemById() {
   const { id } = useParams();
   const router = useRouter();
   const { product } = useProductDetails(id as string);
-  const [snackbarBuy, setSnackbarBuy] = useState({ isOpen: false, productName: '' });
 
   const clickBreadcrumb = (itemId: string) => {
     console.log('clickBreadcrumb ::: ', itemId);
-  }
-
-  const buyProduct = (productName: string) => {
-    setSnackbarBuy({ isOpen: true, productName: productName });
   }
 
   if (!product) return <SkeletonLoading />;
@@ -52,39 +43,10 @@ export default function ItemById() {
           ))}
         </ul>
 
+
         <p className="product__header__listing-id">Publicación: <b>#{product.id}</b></p>
       </div>
-      <div className="product__content">
-        {product.pictures && (
-          <ImageGallery images={product.pictures} />
-        )}
-        <div>
-          <p className="product__content__condition">{product.condition} | N/A vendidos</p>
-          <h1 className="product__content__product-name">{product.title}</h1>
-          <h1 className="product__content__seller">Por N/A</h1>
-          {!!product.price.regularAmount && (
-            <p className="product__content__regular-price">{formatPrice(product.price.regularAmount, product.price.currency)}</p>
-          )}
-          <p className="product__content__price">{formatPrice(product.price.amount, product.price.currency)}</p>
-          <p className="product__content__installments">Mismo precio en N/A cuotas de N/A</p>
-          {product.free_shipping && <p className="product__content__shipping">Envío gratis</p>}
-          <Button className="product__content__buy-btn" variant="contained" onClick={() => buyProduct(product.title)}>Comprar Ahora</Button>
-          {product.attributes.map((attribute: Attribute) => (
-            <p className="product__content__attribute" key={attribute.id}>{attribute.name}: <b>{attribute.value_name}</b></p>
-          ))}
-        </div>
-        <hr className="product__divider" />
-        <div className="product__description">
-          <h2 className="product__description__title">Descripción</h2>
-          <p className="product__description__content">{product.description || 'N/A'}</p>
-        </div>
-      </div>
-
-      <MessageSnackbar
-        isOpen={snackbarBuy.isOpen}
-        message={`¡Compraste ${snackbarBuy.productName}!`}
-        severity="success"
-        handleClose={() => setSnackbarBuy({ isOpen: false, productName: '' })} />
+        <ProductDetails product={product} />
     </section>
   );
 }
