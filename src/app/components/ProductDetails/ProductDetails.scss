@@ -4,51 +4,6 @@ $margin-default-mobile: 14px;
 $margin-default-desktop: 28px;
 
 .product {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto 32px;
-
-  &__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-
-    padding: 16px 8px;
-
-    &__back {
-      color: colors.$text-link;
-      font-size: 15px;
-      font-weight: 400;
-      cursor: pointer;
-    }
-
-    &__breadcrumb {
-      flex: 1;
-      display: flex;
-      list-style: none;
-
-      padding-left: 16px;
-      margin-left: 16px;
-      color: colors.$text-medium;
-
-      li {
-        cursor: pointer;
-
-        &:not(:last-child) {
-          &::after {
-            content: '>';
-            margin: 0 10px;
-            cursor: default;
-          }
-        }
-      }
-    }
-
-    &__listing-id {
-      color: #00000080;
-    }
-  }
 
   &__content {
     background: #FFF;
@@ -136,27 +91,6 @@ $margin-default-desktop: 28px;
 
 @media (min-width: 500px) {
   .product {
-    &__header {
-      flex-direction: row;
-      padding: 30px 0 10px;
-
-      &__breadcrumb {
-        border-left: 1px solid #868686;
-        font-size: 18px;
-        font-weight: 300;
-      }
-
-      &__listing-id {
-        color: colors.$text-dark;
-        font-size: 15px;
-        font-weight: 300;
-
-        b {
-          font-weight: 400;
-        }
-      }
-    }
-
     &__content {
       display: grid;
       grid-template-columns: repeat(2, calc(50% - 24px));
