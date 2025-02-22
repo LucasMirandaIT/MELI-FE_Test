@@ -76,7 +76,8 @@ export default function ItemById() {
         <hr className="product__divider" />
         <div className="product__description">
           <h2 className="product__description__title">Descripción</h2>
-          <p className="product__description__content">{product.description}</p>
+          <p className="product__description__content">{product.description || 'N/A'}</p>
+          {/* <p className="product__description__content">{product.description ? product.description : 'N/A'}</p> */}
         </div>
       </div>
 
