@@ -46,7 +46,7 @@ export default function ProductList() {
   if (error) return <p>Error al cargar productos.</p>;
 
   return (
-    <ul className="product-list">
+    <ul className="product-list" data-testid="products">
       {isPending ? [...Array(ITEMS_PER_PAGE)].map((_, index) =>
         <li key={index} className="product-list__skeleton">
           <Skeleton variant="rectangular" height={220} className="w-[100%] md:w-[15%] rounded" />

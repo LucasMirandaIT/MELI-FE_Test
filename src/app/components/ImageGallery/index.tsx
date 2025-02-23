@@ -41,7 +41,7 @@ export default function PhotoGallery({ images }: ImageGalleryProps) {
             </button>
           ))}
           {images.length > 5 && (
-            <button className="image-gallery__thumbnail image-gallery__thumbnail--more" aria-label="View more images" onClick={() => openLightbox()}>
+            <button className="image-gallery__thumbnail image-gallery__thumbnail--more" data-testid="more-images" aria-label="View more images" onClick={() => openLightbox()}>
               <span>+{images.length - 5}</span>
             </button>
           )}
