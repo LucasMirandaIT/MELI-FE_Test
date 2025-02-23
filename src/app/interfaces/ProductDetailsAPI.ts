@@ -7,7 +7,7 @@ export interface ProductDetailsAPI {
     free_shipping:           boolean;
     sold_quantity:           null;
     installments:            null;
-    description:             string;
+    description:             string | null ;
     attributes:              Attribute[];
     category_path_from_root: CategoryPathFromRoot[];
 }

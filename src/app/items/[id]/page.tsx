@@ -12,11 +12,10 @@ import './ItemById.scss';
 function SkeletonLoading() {
   return (
     <>
-      <Skeleton variant="text" width={'95%'} sx={{ fontSize: '2.5rem', width: '95%', maxWidth: '1200px', margin: '0 auto' }} />
+      <Skeleton role="progressbar" variant="text" width={'95%'} sx={{ fontSize: '2.5rem', width: '95%', maxWidth: '1200px', margin: '0 auto' }} />
       <div className="product__content h-[80vh] w-[95%] max-w-[1200px] mx-auto">
-        <Skeleton variant="rectangular" width={'80%'} height={'100%'} sx={{ marginTop: '10px', marginLeft: '10%' }} />
-
-        <Skeleton variant="rectangular" width={'80%'} height={'70%'} sx={{ marginTop: '10px', marginLeft: '2%' }} />
+        <Skeleton role="progressbar" variant="rectangular" width={'80%'} height={'100%'} sx={{ marginTop: '10px', marginLeft: '10%' }} />
+        <Skeleton role="progressbar" variant="rectangular" width={'80%'} height={'70%'} sx={{ marginTop: '10px', marginLeft: '2%' }} />
       </div>
     </>
   )

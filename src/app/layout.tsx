@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "MELI page from Frontend Test",
 };
 
-function withSuspense(children: React.ReactNode, fallback: string = 'Loading...') {
+function withSuspense(children: React.ReactNode, fallback: string) {
   return <Suspense fallback={<div>{fallback}</div>}>{children}</Suspense>;
 }
 

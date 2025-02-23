@@ -26,7 +26,7 @@ export default function BannerMeliPlus() {
   ];
 
   return (
-    <section className="banner__container">
+    <section className="banner__container" data-testid="banner-meli-plus">
       <div className="banner__header">
         <h2 className="banner__header__title">Mercado Puntos</h2>
         <p className="banner__header__description">Suma puntos y obtené beneficios</p>
